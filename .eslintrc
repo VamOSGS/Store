@@ -1,0 +1,20 @@
+{
+	"plugins": ["prettier"],
+	"env": {
+		"browser": true,
+		"commonjs": true,
+		"es6": true
+	},
+	"extends": "eslint:recommended",
+	"parserOptions": {
+		"sourceType": "module"
+	},
+	"rules": {
+		"no-undef": ["error", { "__dirname": true }],
+		"indent": ["error", "tab"],
+		"quotes": ["error", "single"],
+		"no-var": "error",
+		"no-unused-vars": "warn",
+		"semi": ["error", "always"]
+	}
+}
