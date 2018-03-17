@@ -40,7 +40,7 @@ keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
 	products: ['products', 'product-categories'],
-	order: 'order',
+	orders: 'orders',
 	users: 'users',
 });
 

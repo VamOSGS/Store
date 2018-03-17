@@ -1,17 +1,30 @@
 <div class="container">
-	<h1>Contact Us</h1>
+	<h1>Buy Page.</h1>
 </div>
 <div class="container">
+	{{#if data.err}}
+	<h3>Product not found</h3>
+	{{else}}
 	<div class="row">
+		<div class="col-sm-8 col-md-9">
+			<h2>
+				You are going to buy:
+				<a href="/item/{{data.product.slug}}">{{{data.product.title}}}</a>
+			</h2>
+			<h3>Price: {{data.product.price}}</h3>
+			{{#if data.product.image}}
+			<img src="{{data.product.image}}" class="img">{{/if}}
+		</div>
 		<div class="col-sm-8 col-md-6">
 			{{#if enquirySubmitted}}
-			<h3>Thanks for getting in touch.</h3>
+			<h3>Thank you</h3>
 			{{else}}
 			<form method="post">
 				<input type="hidden" name="action" value="contact">
+				<input type="hidden" name="product" value="{{data.URL}}/item/{{data.product.slug}}">
 				<div class="form-group {{#if validationErrors.name}}has-error{{/if}}">
 					<label>Name</label>
-					<input type="text" name="name.full"  class="form-control" value="{{formData.[name.full]}}">
+					<input type="text" name="name.full" class="form-control" value="{{formData.[name.full]}}">
 				</div>
 				<div class="form-group {{#if validationErrors.email}}has-error{{/if}}">
 					<label>Email</label>
@@ -20,15 +33,6 @@
 				<div class="form-group">
 					<label>Phone</label>
 					<input type="text" name="phone" placeholder="(optional)" class="form-control" value="{{formData.phone}}">
-				</div>
-				<div class="form-group {{#if validationErrors.enquiryType}}has-error{{/if}}">
-					<label>What are you contacting us about?</label>
-					<select name="enquiryType" class="form-control">
-						<option value="">(select one)</option>
-						{{#each enquiryTypes}}
-						<option value="{{value}}">{{label}}</option>
-						{{/each}}
-					</select>
 				</div>
 				<div class="form-group {{#if validationErrors.message}}has-error{{/if}} ">
 					<label>Message</label>
@@ -41,4 +45,5 @@
 			{{/if}}
 		</div>
 	</div>
+	{{/if}}
 </div>

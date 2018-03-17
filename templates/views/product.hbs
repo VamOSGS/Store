@@ -2,10 +2,11 @@
 	<div class="row">
 		<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 			<article>
-				<p><a href="/blog">&larr; back to the blog</a></p>
+				<p><a href="/">&larr; back to the store</a></p>
 				<hr>
 				<header>
 					<h1>{{data.post.title}}</h1>
+					<a href="/buy/{{data.post.slug}}"><h3>Buy for {{data.post.price}}</h3></a>
 					<h5>
 						{{{categoryList data.post.categories prefix="Posted in "}}}
 						{{#if author.name.first}}by {{author.name.first}}{{/if}}
