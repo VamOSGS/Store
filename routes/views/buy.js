@@ -9,7 +9,7 @@ exports = module.exports = function(req, res) {
 	locals.data = {
 		product: {},
 		err: false,
-		URL
+		URL,
 	};
 	locals.formData = req.body || {};
 	locals.validationErrors = {};
@@ -38,10 +38,10 @@ exports = module.exports = function(req, res) {
 			next(err);
 		});
 	});
-	view.on('post', { action: 'contact' }, function(next) {
+	view.on('post', { action: 'contact' }, next => {
 		const newOrder = new Order.model();
 		const updater = newOrder.getUpdateHandler(req);
-		console.log(req.body);
+		// console.log(req.body);
 		updater.process(
 			req.body,
 			{
@@ -49,8 +49,9 @@ exports = module.exports = function(req, res) {
 				fields: 'name, email, phone, product, message',
 				errorMessage: 'There was a problem submitting your Order:',
 			},
-			function(err) {
+			err => {
 				if (err) {
+					console.log('err');
 					locals.validationErrors = err.errors;
 				} else {
 					locals.OrderSubmitted = true;
