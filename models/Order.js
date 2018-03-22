@@ -10,11 +10,11 @@ Order.add({
 	name: { type: Types.Name, required: true },
 	email: { type: Types.Email, required: true },
 	product: { type: String, require: true },
-	phone: { type: String },
+	phone: { type: Number },
 	message: { type: Types.Markdown },
 	createdAt: { type: Date, default: Date.now },
 });
 
 Order.defaultSort = '-createdAt';
-Order.defaultColumns = 'name, email, OrderType, createdAt';
+Order.defaultColumns = 'name,  phone, product, createdAt';
 Order.register();
