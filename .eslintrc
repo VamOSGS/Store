@@ -10,8 +10,7 @@
 		"sourceType": "module"
 	},
 	"rules": {
-		"no-undef": ["error", { "__dirname": true }],
-		"indent": ["error", "tab"],
+		"indent": ["error", 2],
 		"quotes": ["error", "single"],
 		"no-var": "error",
 		"no-unused-vars": "warn",

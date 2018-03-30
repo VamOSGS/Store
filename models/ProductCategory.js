@@ -6,11 +6,11 @@ const keystone = require('keystone');
  */
 
 const ProductCategory = new keystone.List('ProductCategory', {
-	autokey: { from: 'name', path: 'key', unique: true },
+  autokey: { from: 'name', path: 'key', unique: true },
 });
 
 ProductCategory.add({
-	name: { type: String, required: true },
+  name: { type: String, required: true },
 });
 
 ProductCategory.relationship({ ref: 'Product', path: 'product', refPath: 'categories' });

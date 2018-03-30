@@ -1,8 +1,8 @@
 const keystone = require('keystone');
 
 exports = module.exports = function (req, res) {
-	const view = new keystone.View(req, res);
-	const locals = res.locals;
-	locals.section = 'home';
-	view.render('products');
+  const view = new keystone.View(req, res);
+  const locals = res.locals;
+  locals.section = 'home';
+  view.render('products');
 };
